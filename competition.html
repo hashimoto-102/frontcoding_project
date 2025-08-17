@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joey | 我的比賽歷程</title>
+    <style>
+        /* 新的顏色變數 */
+        :root {
+            --primary-color: #ffb74d; /* 柔和的橘色 */
+            --secondary-color: #ffab40; /* 飽和度較低的橘色 */
+            --background-light: #fefcf5; /* 淺米黃色 */
+            --card-background: #fff; /* 卡片背景色 */
+            --text-dark: #333; /* 深灰色字體 */
+            --text-gray: #6c757d; /* 次要灰色字體 */
+        }
+
+        /* 基本排版 */
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* 導航列 */
+        .header-nav {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-nav .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+            text-decoration: none;
+            color: white;
+        }
+
+        .header-nav nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 1em;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .header-nav nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .header-nav nav a:hover::after {
+            transform: scaleX(1);
+        }
+        
+        /* 主要區塊 */
+        .main-content {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .hero-section h1 {
+            font-size: 2.8em;
+            margin: 0 0 10px 0;
+            color: white;
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background: linear-gradient(to right, #ff8a00, #ffb300);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .content-section {
+            background-color: var(--card-background);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            text-align: center; /* 內容區塊標題與段落居中 */
+        }
+        
+        /* 標題與列表 */
+        .content-section h2 {
+            font-size: 2em;
+            color: var(--text-dark);
+            margin-top: 0;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .content-section p {
+            font-size: 1.1em;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 20px auto;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left; /* 列表內容靠左 */
+        }
+
+        li {
+            background-color: var(--background-light);
+            border-left: 5px solid var(--primary-color);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        li strong {
+            color: var(--text-dark);
+        }
+
+        /* 聯絡區塊 */
+        .contact-section h2::after {
+            background-color: var(--primary-color);
+        }
+        .contact-links a {
+            font-size: 1.1em;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 15px;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        .contact-links a:hover {
+            color: #ff8c00;
+        }
+
+        /* Form表單樣式 */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            box-sizing: border-box; /* 確保 padding 不會增加寬度 */
+        }
+
+        .contact-form textarea {
+            resize: vertical; /* 允許垂直調整大小 */
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            background: linear-gradient(to right, #ff8a00, #ffb300);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* RWD 響應式設計 */
+        @media (max-width: 768px) {
+            .header-nav {
+                flex-direction: column;
+                padding: 15px 20px;
+                text-align: center;
+            }
+
+            .header-nav nav {
+                margin-top: 15px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header-nav nav a {
+                margin: 0;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            .hero-section {
+                padding: 60px 15px;
+            }
+
+            .hero-section h1 {
+                font-size: 2em;
+            }
+
+            .hero-section p {
+                font-size: 1em;
+            }
+
+            .content-section {
+                padding: 30px 20px;
+            }
+
+            .content-section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-nav">
+        <a href="index.html" class="logo">InJoy with Z Generation</a>
+        <nav>
+            <a href="the project.html">關於我</a>
+            <a href="competition.html">我的比賽歷程</a>
+            <a href="workforce.html">我的工作經歷</a>
+            <a href="experience.html">我的研究與其他經歷</a>
+        </nav>
+    </header>
+
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h1>Joey 的Z世代冒險之旅</h1>
+            <p>
+                從商管進入教育，接著走向資料科學的自我成長與生涯探索之旅。
+            </p>
+            <a href="#contact" class="cta-button">立即聯絡！</a>
+        </section>
+
+        <section class="content-section">
+            <h2>新竹縣政府竹夢young點子創業競賽入圍</h2>
+            <p>
+                擔任團隊的COO（營運長），負責團隊企劃書撰寫、策略與簡報設計。<br>
+                「大型車輛盲點偵測器」創業題目，與勤益科大資工系、電機系團隊合作競賽。
+            </p>
+        </section>
+
+        <section class="content-section" style="background-color: var(--background-light);">
+            <h2>臺中科技大學－全國大專農業商業佈展競賽</h2>
+            <p>
+                全國英語簡報發表佳作<br>
+                全國商業佈展企劃書第三名<br>
+                擔任國際貿易學系團隊隊長。
+            </p>
+        </section>
+
+       
+    </main>
+</body>
+</html>

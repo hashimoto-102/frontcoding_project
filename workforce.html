@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joey | 個人介紹</title>
+    <style>
+        /* 新的顏色變數 */
+        :root {
+            --primary-orange: #ffb74d; /* 柔和的橘色 */
+            --secondary-orange: #ffab40; /* 飽和度較低的橘色 */
+            --background-light: #fefcf5; /* 淺米黃色 */
+            --card-background: #fff; /* 卡片背景色 */
+            --text-dark: #333; /* 深灰色字體 */
+            --text-gray: #6c757d; /* 次要灰色字體 */
+        }
+
+        /* 基本排版 */
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* 導航列 */
+        .header-nav {
+            background-color: var(--secondary-orange);
+            color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-nav .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+            text-decoration: none;
+            color: white;
+        }
+
+        .header-nav nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 1em;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .header-nav nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .header-nav nav a:hover::after {
+            transform: scaleX(1);
+        }
+        
+        /* 主要區塊 */
+        .main-content {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: var(--secondary-orange);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .hero-section h1 {
+            font-size: 2.8em;
+            margin: 0 0 10px 0;
+            color: white;
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background: linear-gradient(to right, #ff8a00, #ffb300);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .content-section {
+            background-color: var(--card-background);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        /* 標題與列表 */
+        .content-section h2 {
+            font-size: 2em;
+            color: var(--text-dark);
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-orange);
+            border-radius: 2px;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: var(--background-light);
+            border-left: 5px solid var(--primary-orange);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        li strong {
+            color: var(--text-dark);
+        }
+
+        /* 聯絡區塊 */
+        .contact-section h2::after {
+            background-color: var(--primary-orange);
+        }
+    </style>
+</head>
+<body>
+
+   <header class="header-nav">
+        <a href="index.html" class="logo">InJoy with Z Generation</a>
+        <nav>
+            <a href="the project.html">關於我</a>
+            <a href="competition.html">我的比賽歷程</a>
+            <a href="workforce.html">我的工作經歷</a>
+            <a href="experience.html">我的研究與其他經歷</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h1>Joey 的Z世代冒險之旅</h1>
+            <p>
+                從商管進入教育，接著走向資料科學的自我成長與生涯探索之旅。
+            </p>
+            <a href="#contact" class="cta-button">立即聯絡！</a>
+        </section>
+
+        <section id="projects" class="content-section">
+            <h2>專案與活動策劃</h2>
+            <ul>
+                <li>**大型成果展策劃與執行**：成功主辦一場超過600人參與的年度成果展，負責企劃、設計、行銷與領導，並獲得4.7/5分好評。</li>
+                <li>**跨領域協作與領導**：擔任總召，協調12組團隊（60+人）、內部工作人員與外部廠商，並管理跨部門人力、活動流程與風險。</li>
+            </ul>
+        </section>
+
+        <section id="sustainability" class="content-section">
+            <h2>社會責任與永續專案輔導</h2>
+            <ul>
+                <li>**永續專案執行**：作為**永續專案輔導員**，負責專案執行、資料管理與公關內容，並參與研討會發表四篇相關論文，其中一篇為全英文。</li>
+                <li>**計畫育成與管理**：主導「高教深耕計畫」，成功協助校內12組團隊（成長150%）及4組部級計畫，負責流程設計、團隊輔導與資源管理。</li>
+            </ul>
+        </section>
+
+        <section id="admin" class="content-section">
+            <h2>行政與法規治理</h2>
+            <ul>
+                <li>**行政管理與法規遵循**：負責核銷流程規劃，並掌握人事與行政法規，確保所有業務皆符合中央政府（如教育部與主計處）的法規要求。</li>
+                <li>**規章修訂**：參與行政規章與獎勵辦法的修訂與執行。</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
